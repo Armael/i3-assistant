@@ -1,0 +1,5 @@
+PKG lwt
+PKG lwt.ppx
+PKG i3ipc
+PKG batteries
+PKG ppx_deriving_yojson
