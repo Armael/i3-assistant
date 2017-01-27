@@ -9,7 +9,6 @@ A small collection of tools to interact with i3, using [ocaml-i3ipc](https://git
 ## Build
 
 ```
-opam pin add dmlenu https://github.com/the-lambda-church/dmlenu.git
 opam pin add i3ipc https://github.com/Armael/ocaml-i3ipc.git
 make
 ```
