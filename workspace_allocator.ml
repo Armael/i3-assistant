@@ -23,11 +23,17 @@ let is_keybind mods key binding =
   binding.event_state_mask = mods &&
   binding.symbol = Some key
 
+let is_keycode mods code binding =
+  let open Event in
+  binding.input_type = Keyboard &&
+  binding.event_state_mask = mods &&
+  binding.input_code = code
+
 let rec loop conn =
   let open Event in
   match%lwt next_event conn with
   | Binding { binding; _ } ->
-    (if is_keybind ["Mod4"] "dollar" binding then
+    (if is_keycode ["Mod4"] 49 binding then
        go_to_fresh_workspace conn
      else
        Lwt.return ()) >>= fun _ ->
